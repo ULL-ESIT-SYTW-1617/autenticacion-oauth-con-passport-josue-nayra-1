@@ -90,7 +90,8 @@ app.get('/login/github/return',
 
 app.get('/inicio_gitbook', function(req,res)
 {
-    res.sendFile(path.join(__dirname,'gh-pages','introduccion.html'));
+  res.sendFile(path.join(__dirname,'gh-pages','introduccion.html'));res.redirect('/');
+
 });
 
 app.get('/error', function(req, res)

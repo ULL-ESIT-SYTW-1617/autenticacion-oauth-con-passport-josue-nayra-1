@@ -139,6 +139,88 @@ var preparar_despliegue = (() => {
   });
 });
 
+//-------------------------------------------------------------------------------------------------
+
+var build_tokenHeroku = (() =>
+{
+  return new Promise((resolve,reject)=>
+  {
+    exec('heroku auth:token', ((error, stdout, stderr) =>
+    {
+      if (error)
+      {
+        console.error("Error:"+JSON.stringify(error));
+        throw error;
+      }
+
+      console.log("Token heroku:"+stdout);
+
+      var datos = `{ "token_heroku" : "${stdout}" }`;
+
+      console.log("Datos:"+datos);
+
+      fs.writeFile(path.join(process.env.HOME,'.heroku','heroku.json'), datos, (err) =>
+      {
+          if(err)
+          {
+            console.log(err);
+            throw err;
+          }
+          resolve(stdout);
+      });
+    }));
+  });
+});
+
+
+//-------------------------------------------------------------------------------------------------
+
+var get_tokenHeroku = (() =>
+{
+    return new Promise((result,reject)=>
+    {
+      if(fs.existsSync(path.join(process.env.HOME,'.heroku')))
+      {
+          if(fs.existsSync(path.join(process.env.HOME,'.heroku','heroku.json')))
+          {
+            fs.readFile(path.join(process.env.HOME,'.heroku','heroku.json'), (err,data) =>
+            {
+                if(err)
+                {
+                  throw err;
+                }
+
+                var datos = JSON.parse(data);
+                result(datos.token_heroku);
+            });
+          }
+          else
+          {
+              build_tokenHeroku().then((resolve,reject) =>
+              {
+                 //Construyo el heroku.json
+                 result(resolve);
+              });
+          }
+      }
+      else
+      {
+          fs.mkdirp(path.join(process.env.HOME,'.heroku'), (err) =>
+          {
+              if(err)
+                throw err;
+
+              build_tokenHeroku().then((resolve,reject) =>
+              {
+                  //Construyo heroku.json
+                  result(resolve);
+              });
+          });
+      }
+    });
+});
+
+
 
 //-------------------------------------------------------------------------------------------------
 
@@ -168,32 +250,35 @@ var crear_app = (() => {
     });
     
     //Creamos aplicacion
-    exec('heroku auth:token', ((error, stdout, stderr) =>
+    get_tokenHeroku().then((resolve,reject) =>
     {
-      if (error)
-          console.error("Error:"+JSON.stringify(error));
-      // console.log("Stderr:"+stderr);
-      // console.log("Stdout(token):"+stdout);
-      // console.log("Aplication:\n"+JSON.stringify(pkj.Heroku));
-      const heroku = new Heroku({ token: stdout });
-    
-    
-      heroku.post('/apps', {body: {name: pkj.Heroku.nombre_app}}).then((app) => {
+      console.log("RESOLVEEEE:"+resolve);
+      const heroku = new Heroku({ token: resolve });
 
-            var respuesta = JSON.stringify(app);
-            // console.log("App:"+respuesta);
-            var respuesta1 = JSON.parse(respuesta);
-            var git_url = respuesta1.git_url;
-            console.log("Git url:"+respuesta1.git_url);
-            git()
-              .init()
-              .add('./*')
-              .commit("Deploy to Heroku")
-              .addRemote('heroku', git_url);
-            
-            resolve(respuesta1.git_url);
-      });
-    }));
+      // console.log("Nombre de la app:"+pkj.Heroku.nombre_app);
+
+      try {
+        // console.log("EEEEEE MACARENA O SA MACARENA O LA LA MACARENA EH YEAH MEN");
+        heroku.post('/apps', {body: {name: pkj.Heroku.nombre_app}}).then((app) => {
+
+              var respuesta = JSON.stringify(app);
+              var respuesta1 = JSON.parse(respuesta);
+              var git_url = respuesta1.git_url;
+              console.log("Git url:"+respuesta1.git_url);
+              git()
+                .init()
+                .add('./*')
+                .commit("Deploy to Heroku")
+                .addRemote('heroku', git_url);
+
+              resolve(respuesta1.git_url);
+        });
+      } 
+      catch (e) {
+          throw e;
+      }
+
+    });
     
   }); 
 });
@@ -207,10 +292,10 @@ var initialize = (() => {
 
     obtener_variables().then((resolve,reject) =>
     {
-        console.log("Obtener_variables:"+JSON.stringify(resolve));
+        // console.log("Obtener_variables:"+JSON.stringify(resolve));
         generar_fileSecret(resolve).then((resolve,reject) =>
         {
-            console.log("generar_fileSecret");
+            // console.log("generar_fileSecret");
             preparar_despliegue().then((resolve, reject) => 
             {
               crear_app().then((resolve,reject) =>
