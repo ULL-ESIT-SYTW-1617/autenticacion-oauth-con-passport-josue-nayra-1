@@ -90,7 +90,7 @@ app.get('/login/github/return',
 
 app.get('/inicio_gitbook', function(req,res)
 {
-  res.sendFile(path.join(__dirname,'gh-pages','introduccion.html'));res.redirect('/');
+  res.sendFile(path.join(__dirname,'gh-pages','introduccion.html'));
 
 });
 
@@ -101,7 +101,8 @@ app.get('/error', function(req, res)
 });
 
 app.get('/logout',function(req,res){
-  logout();
+  req.logout();
+  req.session.destroy();
   res.redirect('/');
 });
 
@@ -109,4 +110,3 @@ app.get('/logout',function(req,res){
 app.listen(process.env.PORT || 8080);
 
 module.exports = app;
-

@@ -24,13 +24,13 @@ var respuesta = ((error, stdout, stderr) =>
 
 var deploy = (() => {
     console.log("Deploy to Heroku");
-    exec('git add .; git commit -m "Deploy to Heroku"; git push heroku master', respuesta); 
+    exec('git add .; git commit -m "Deploy to Heroku"; git push heroku master', respuesta);
 });
 
 //-------------------------------------------------------------------------------------------------
 
 var escribir_gulpfile = (() => {
-  
+
   return new Promise((resolve,reject) => {
     var tarea_gulp = `\n\ngulp.task("deploy-heroku", function(){`+
              `\n       require("gitbook-start-heroku-josue-nayra").deploy();`+
@@ -41,7 +41,7 @@ var escribir_gulpfile = (() => {
         // console.log(data);
         if(data.search("deploy-heroku") != -1)
         {
-          console.log("Ya existe una tarea de deploy-heroku");    
+          console.log("Ya existe una tarea de deploy-heroku");
         }
         else
         {
@@ -52,9 +52,9 @@ var escribir_gulpfile = (() => {
           });
         }
     });
-  
-  }); 
-    
+
+  });
+
 });
 
 //-------------------------------------------------------------------------------------------------
@@ -154,21 +154,24 @@ var build_tokenHeroku = (() =>
         throw error;
       }
 
-      console.log("Token heroku:"+stdout);
+      // console.log("Token heroku:"+stdout);
 
-      var datos = `{ "token_heroku" : "${stdout}" }`;
+      var datos = { token_heroku : stdout };
 
-      console.log("Datos:"+datos);
+      // console.log("Datos:"+datos);
 
-      fs.writeFile(path.join(process.env.HOME,'.heroku','heroku.json'), datos, (err) =>
-      {
-          if(err)
-          {
-            console.log(err);
-            throw err;
-          }
-          resolve(stdout);
-      });
+      // fs.writeFile(path.join(process.env.HOME,'.heroku','heroku.json'), datos, (err) =>
+      // {
+      //     if(err)
+      //     {
+      //       console.log(err);
+      //       throw err;
+      //     }
+      //     resolve(stdout);
+      // });
+      jsonfile.spaces = 10;
+      jsonfile.writeFileSync(path.join(process.env.HOME,'.heroku','heroku.json'),datos,{spaces: 10});
+      resolve(stdout);
     }));
   });
 });
@@ -229,12 +232,12 @@ var get_AppName = (() =>
     {
         if((pkj.Heroku.nombre_app).match(/\S/g))
         {
-            console.log("1");
+            // console.log("1");
             resolve(pkj.Heroku.nombre_app);
         }
         else
         {
-            console.log("2");
+            // console.log("2");
             var schema = [
               {
                 name: 'nombre_app',
@@ -296,11 +299,11 @@ var crear_app = (() => {
           throw err;
         }
     });
-    
+
     //Creamos aplicacion
     get_tokenHeroku().then((resolve,reject) =>
     {
-      console.log("RESOLVEEEE:"+resolve);
+      // console.log("RESOLVEEEE:"+resolve);
       const heroku = new Heroku({ token: resolve });
 
       // console.log("Nombre de la app:"+pkj.Heroku.nombre_app);
@@ -322,14 +325,14 @@ var crear_app = (() => {
 
 		      result(respuesta1.git_url);
 		});
-	      } 
+	      }
 	      catch (e) {
 		  throw e;
 	      }
 	});
     });
-    
-  }); 
+
+  });
 });
 
 
@@ -345,14 +348,14 @@ var initialize = (() => {
         generar_fileSecret(resolve).then((resolve,reject) =>
         {
             // console.log("generar_fileSecret");
-            preparar_despliegue().then((resolve, reject) => 
+            preparar_despliegue().then((resolve, reject) =>
             {
               crear_app().then((resolve,reject) =>
               {
                     escribir_gulpfile();
-              });  
+              });
             });
-            
+
         });
     });
 });
