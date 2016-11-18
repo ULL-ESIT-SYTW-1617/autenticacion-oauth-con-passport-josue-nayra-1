@@ -8,6 +8,7 @@ const pkj = require(path.join(basePath, 'package.json'));
 const git = require('simple-git');
 const Heroku = require('heroku-client');
 const inquirer = require('inquirer');
+const jsonfile = require('jsonfile');
 
 //-------------------------------------------------------------------------------------------------
 
@@ -220,12 +221,59 @@ var get_tokenHeroku = (() =>
     });
 });
 
+//-------------------------------------------------------------------------------------------------
+
+var get_AppName = (() =>
+{
+    return new Promise((resolve,reject) =>
+    {
+        if((pkj.Heroku.nombre_app).match(/\S/g))
+        {
+            console.log("1");
+            resolve(pkj.Heroku.nombre_app);
+        }
+        else
+        {
+            console.log("2");
+            var schema = [
+              {
+                name: 'nombre_app',
+                message: "Enter HerokuApp Name:"
+              }
+            ];
+
+            inquirer.prompt(schema).then((respuestas) =>
+            {
+                //Escribir en el package.json
+                fs.readFile(path.join(basePath,'package.json'),(err,data) =>
+                {
+                    if(err)
+                      throw err;
+                    // console.log("PREDATA:"+data);
+                    var datos = JSON.parse(data);
+                    // console.log("POSTDATA:"+datos);
+                    datos.Heroku.nombre_app = respuestas.nombre_app;
+                    // console.log("POSTDATA1:"+datos);
+                    jsonfile.spaces = 10;
+                    jsonfile.writeFileSync(path.join(basePath,'package.json'),datos,{spaces: 10});
+                    // fs.writeFile(path.join(basesPath,'package.json'),JSON.stringify(datos),(err)=>
+                    // {
+                    //     if(err)
+                    //       throw err;
+                    // });
+                });
+
+                resolve(respuestas.nombre_app);
+            });
+        }
+    });
+});
 
 
 //-------------------------------------------------------------------------------------------------
 
 var crear_app = (() => {
-  return new Promise((resolve,reject) => {
+  return new Promise((result,reject) => {
     console.log("Creando app.js y Procfile");
     fs.copy(path.join(__dirname,'template','app.js'), path.join(basePath, 'app.js'));
     fs.copy(path.join(__dirname,'template','Procfile'), path.join(basePath, 'Procfile'));
@@ -256,28 +304,29 @@ var crear_app = (() => {
       const heroku = new Heroku({ token: resolve });
 
       // console.log("Nombre de la app:"+pkj.Heroku.nombre_app);
+      get_AppName().then((resolve1,reject1) =>
+      {
+	      try {
+		// console.log("EEEEEE MACARENA O SA MACARENA O LA LA MACARENA EH YEAH MEN");
+		heroku.post('/apps', {body: {name: resolve1}}).then((app) => {
 
-      try {
-        // console.log("EEEEEE MACARENA O SA MACARENA O LA LA MACARENA EH YEAH MEN");
-        heroku.post('/apps', {body: {name: pkj.Heroku.nombre_app}}).then((app) => {
+		      var respuesta = JSON.stringify(app);
+		      var respuesta1 = JSON.parse(respuesta);
+		      var git_url = respuesta1.git_url;
+		      console.log("Git url:"+respuesta1.git_url);
+		      git()
+		        .init()
+		        .add('./*')
+		        .commit("Deploy to Heroku")
+		        .addRemote('heroku', git_url);
 
-              var respuesta = JSON.stringify(app);
-              var respuesta1 = JSON.parse(respuesta);
-              var git_url = respuesta1.git_url;
-              console.log("Git url:"+respuesta1.git_url);
-              git()
-                .init()
-                .add('./*')
-                .commit("Deploy to Heroku")
-                .addRemote('heroku', git_url);
-
-              resolve(respuesta1.git_url);
-        });
-      } 
-      catch (e) {
-          throw e;
-      }
-
+		      result(respuesta1.git_url);
+		});
+	      } 
+	      catch (e) {
+		  throw e;
+	      }
+	});
     });
     
   }); 
