@@ -2,16 +2,16 @@
 
 ## Plugin: Autenticación OAuth con Passport
 
-El servidor proveído por el plugin (sea iaas o heroku) deberá autenticar que el lector del libro pertenece a una organización dada de GitHub (por ejemplo ULL-ESIT-SYTW-1617). 
+El servidor proveído por el plugin (sea iaas o heroku) deberá autenticar que el lector del libro pertenece a una organización dada de GitHub (por ejemplo ULL-ESIT-SYTW-1617).
 Si es el caso que pertenece podrá seguir leyendo el libro, sino será redirigido a la ruta de autenticación.
 
 
-[Plugin: gitbook-start-heroku-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra)
+[Plugin: gitbook-start-heroku-p7-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra)
 
 **Versiones de los paquetes:**
 
 * gitbook-start-josue-nayra: **@1.8.5** (latest)
-* gitbook-start-heroku-josue-nayra: **@1.1.5**
+* gitbook-start-heroku-p7-josue-nayra: **@0.0.1**
 * gitbook-start-iaas-ull-es-josue-nayra: **@1.1.9**
 
 
@@ -20,13 +20,13 @@ Si es el caso que pertenece podrá seguir leyendo el libro, sino será redirigid
 Seguimos los pasos especificados de nuestro plugin para la creación del libro:
 
 1- Descargar el paquete inicial: **gitbook-start-josue-nayra**
-    
+
 ```bash
-$ npm install -g gitbook-start-josue-nayra 
+$ npm install -g gitbook-start-josue-nayra
 ```
 
 2- Crear el libro mediante el comando:
-    
+
 ```bash
 $ gitbook-start -d <directorio> --autor <autor> --name <nombre_libro> --url <url_repo>
 ```
@@ -42,16 +42,16 @@ $ cd <directorio en el que se ha desplegado el libro>
 
 
 4- Instalar las dependencias necesarias mediante el comando:
-    
+
 ```bash
-$ npm install 
+$ npm install
 ```
 
 
-5- Instalar el plugin requerido como dependendecia con la opción --save, como por ejemplo: **gitbook-start-heroku-ull-es-josue-nayra** para el despliegue en Heroku.
-    
+5- Instalar el plugin requerido como dependendecia con la opción --save, como por ejemplo: **gitbook-start-heroku-p7-josue-nayra** para el despliegue en Heroku.
+
 ```bash
-$ npm install --save gitbook-start-heroku-josue-nayra
+$ npm install --save gitbook-start-heroku-p7-josue-nayra
 ```
 
 
@@ -86,12 +86,12 @@ $ gulp build
 
 
 10- Una vez que hemos instalado el plugin de Heroku,  ejecutamos el **deploy**:
-   
+
 ```bash
 $ gitbook-start --deploy heroku  
 ```
 
-Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada 
+Una vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada
 "deploy-<máquina en la que realizar el despliegue>" que permitirá al usuario actualizar el contenido de dicha máquina.
 
 ```javascript
@@ -103,8 +103,8 @@ gulp.task("deploy-<máquina en la que realizar el despliegue>", function(){
 
 11- Ahora el usuario podrá ejecutar el siguiente comando y se le actualizarán los cambios en el Gitbook desplegado en Heroku:
 
-``` 
-$ gulp deploy-heroku 
+```
+$ gulp deploy-heroku
 ```
 
 
@@ -158,21 +158,17 @@ $ gulp deploy-heroku
 
 - [Campus virtual](https://campusvirtual.ull.es/1617/course/view.php?id=1175)
 
-- [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaplugin2.html)
+- [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicapassport.html)
 
 - [Publicación del paquete gitbook-start-josue-nayra](https://www.npmjs.com/package/gitbook-start-josue-nayra)
 
 - [Plugin para el despliegue en IAAS](https://www.npmjs.com/package/gitbook-start-iaas-ull-es-josue-nayra)
 
-- [Plugin para el despliegue con Heroku](https://www.npmjs.com/package/gitbook-start-heroku-josue-nayra)
+- [Plugin para el despliegue con Heroku](https://www.npmjs.com/package/gitbook-start-heroku-p7-josue-nayra)
 
-- [Repositorio del plugin Heroku](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra/) 
+- [Repositorio del plugin IAAS](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-iaas-ull-es-josue-nayra)
 
-- [Repositorio del plugin IAAS](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-iaas-ull-es-josue-nayra) 
-
-- [Repositorio de gitbook-start-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-josue-nayra)
-
-- [Repositorio MAIN Heroku](https://github.com/ULL-ESIT-SYTW-1617/practica-plugins-heroku-josue-nayra)
+- [Repositorio de gitbook-start-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/crear-repositorio-en-github-josue-nayra.git)
 
 
 
