@@ -8,12 +8,14 @@ var config = require(path.join(basePath,'.secret.json'));
 var datos_config = JSON.parse(JSON.stringify(config));
 var logout = require('express-passport-logout');
 var expressLayouts = require('express-ejs-layouts');
+var pkj = require(path.join(basePath, 'package.json'));
+var callbackURL_ = 'http://'.concat(pkj.Heroku.nombre_app).concat('.herokuapp.com/login/github/return');
 
 
 passport.use(new Strategy({
     clientID: datos_config.clientID,
     clientSecret: datos_config.clientSecret,
-    callbackURL: 'http://localhost:8080/login/github/return'
+    callbackURL: callbackURL_
   },
   function(accessToken, refreshToken, profile, cb) {
 

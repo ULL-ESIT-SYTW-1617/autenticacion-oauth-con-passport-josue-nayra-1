@@ -84,8 +84,13 @@ $ heroku login
 $ gulp build
 ```
 
+10.- Previamente a crear nuestra APP en Heroku, debemos configurar una Oauth Application en Github, puesto que en el paso siguiente se pide que se introduzca por pantalla un clientID y un clientSecret para la misma. Debemos acceder al siguiente enlace y hacer click en "Register a new Application":
 
-10- Una vez que hemos instalado el plugin de Heroku,  ejecutamos el **deploy**:
+  [Generar Oauth Application](https://github.com/settings/developers)
+
+NOTA: Es importante rellenar correctamente las secciones de **Homepage URL**(*http://localhost:8080/home*) y **Authorization callback URL**(*http://<nombreAppHeroku>.herokuapp.com/login/github/return*).
+
+11- Una vez que hemos instalado el plugin de Heroku,  ejecutamos el **deploy**:
 
 ```bash
 $ gitbook-start --deploy heroku  
@@ -101,7 +106,7 @@ gulp.task("deploy-<máquina en la que realizar el despliegue>", function(){
 ```
 
 
-11- Ahora el usuario podrá ejecutar el siguiente comando y se le actualizarán los cambios en el Gitbook desplegado en Heroku:
+12- Ahora el usuario podrá ejecutar el siguiente comando y se le actualizarán los cambios en el Gitbook desplegado en Heroku:
 
 ```
 $ gulp deploy-heroku
