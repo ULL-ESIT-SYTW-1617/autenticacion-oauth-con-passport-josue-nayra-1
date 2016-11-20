@@ -131,13 +131,30 @@ var generar_fileSecret = ((datos) =>
 
 var preparar_despliegue = (() => {
   return new Promise((resolve, reject) => {
-      fs.rename(path.join(basePath,'gh-pages','index.html'), path.join(basePath,'gh-pages','introduccion.html'), (err) => {
-        if (err) {
-          console.log(err);
-          throw err;
-        }
-        resolve(fs.existsSync(path.join(basePath,'gh-pages','introduccion.html')));
-      });
+      if(fs.existsSync(path.join(basePath,'gh-pages','index.html')))
+      {
+        fs.rename(path.join(basePath,'gh-pages','index.html'), path.join(basePath,'gh-pages','introduccion.html'), (err) => {
+          if (err) {
+            console.log(err);
+            throw err;
+          }
+
+          resolve(fs.existsSync(path.join(basePath,'gh-pages','introduccion.html')));
+        });
+      }
+      else
+      {
+
+          if(fs.existsSync(path.join(basePath,'gh-pages','introduccion.html')))
+          {
+
+            resolve(fs.existsSync(path.join(basePath,'gh-pages','introduccion.html')));
+          }
+          else
+          {
+            console.log("No existe gh-pages... Debe ejecutar gulp build para construir el libro");
+          }
+      }
   });
 });
 
@@ -285,8 +302,8 @@ var get_AppsHeroku = ((Appname)=>
       heroku.get('/apps').then(apps => {
           for(var d in apps)
           {
-            console.log("Nombre app:"+apps[d].name);
-            console.log("Appname:"+Appname);
+            //console.log("Nombre app:"+apps[d].name);
+            //console.log("Appname:"+Appname);
             if(Appname == apps[d].name)
             {
               // console.log("Ya existe la aplicacion");
