@@ -88,7 +88,7 @@ $ gulp build
 
   [Generar Oauth Application](https://github.com/settings/developers)
 
-NOTA: Es importante rellenar correctamente las secciones de **Homepage URL**(*http://localhost:8080/home*) y **Authorization callback URL**(*http://<nombreAppHeroku>.herokuapp.com/login/github/return*).
+NOTA: Es importante rellenar correctamente las secciones de **Homepage URL**(*http://localhost:8080/home*) y **Authorization callback URL**(*http:// < nombreAppHeroku > .herokuapp.com/login/github/return*).
 
 11- Una vez que hemos instalado el plugin de Heroku,  ejecutamos el **deploy**:
 
