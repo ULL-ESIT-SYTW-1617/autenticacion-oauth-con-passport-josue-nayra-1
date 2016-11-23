@@ -34,7 +34,7 @@ var escribir_gulpfile = (() => {
 
   return new Promise((resolve,reject) => {
     var tarea_gulp = `\n\ngulp.task("deploy-heroku", function(){`+
-             `\n       require("gitbook-start-heroku-josue-nayra").deploy();`+
+             `\n       require("gitbook-start-heroku-p7-josue-nayra").deploy();`+
              `\n});`;
 
     fs.readFile('gulpfile.js', "utf8", function(err, data) {
@@ -314,6 +314,8 @@ var get_AppsHeroku = ((Appname)=>
       });
     });
 });
+
+//-------------------------------------------------------------------------------------------------
 
 var crear_app = (() => {
   return new Promise((result,reject) => {
