@@ -1,0 +1,137 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/versions/node/v4.5.0/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/versions/node/v4.5.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/ubuntu/workspace/P7_autenticacion/autenticacion-oauth-con-passport-josue-nayra-1',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package.tgz not in flight; packing
+9 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+10 verbose tar pack [ '/home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package.tgz',
+10 verbose tar pack   '/home/ubuntu/workspace/P7_autenticacion/autenticacion-oauth-con-passport-josue-nayra-1' ]
+11 verbose tarball /home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package.tgz
+12 verbose folder /home/ubuntu/workspace/P7_autenticacion/autenticacion-oauth-con-passport-josue-nayra-1
+13 info prepublish gitbook-start-heroku-p7-josue-nayra@0.0.6
+14 verbose addLocalTarball adding from inside cache /home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package.tgz
+15 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+16 silly cache afterAdd gitbook-start-heroku-p7-josue-nayra@0.0.6
+17 verbose afterAdd /home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package/package.json not in flight; writing
+18 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+19 verbose afterAdd /home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package/package.json written
+20 silly publish { name: 'gitbook-start-heroku-p7-josue-nayra',
+20 silly publish   version: '0.0.6',
+20 silly publish   description: 'Plugin that lets users to deploy a gitbook in Heroku',
+20 silly publish   main: 'gitbook-start-heroku-josue-nayra.js',
+20 silly publish   scripts:
+20 silly publish    { start: 'node ./bin/gitbook-start-heroku-josue-nayra.js',
+20 silly publish      test: 'echo "Error: no test specified" && exit 1' },
+20 silly publish   repository:
+20 silly publish    { type: 'git',
+20 silly publish      url: 'git+https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra.git' },
+20 silly publish   contributors:
+20 silly publish    [ { name: 'Josue Toledo',
+20 silly publish        email: 'alu0100763492@ull.edu.es',
+20 silly publish        url: 'www.github.com/JosueTC94' },
+20 silly publish      { name: 'Nayra Rodriguez',
+20 silly publish        email: 'alu0100406122@ull.edu.es',
+20 silly publish        url: 'www.github.com/alu0100406122' } ],
+20 silly publish   keywords: [ 'Gitbook', 'deploy', 'heroku' ],
+20 silly publish   author: '',
+20 silly publish   license: 'ISC',
+20 silly publish   bugs: { url: 'https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra/issues' },
+20 silly publish   homepage: 'https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra#readme',
+20 silly publish   dependencies:
+20 silly publish    { 'body-parser': '^1.15.2',
+20 silly publish      'connect-ensure-login': '^0.1.1',
+20 silly publish      'cookie-parser': '^1.4.3',
+20 silly publish      ejs: '^2.5.2',
+20 silly publish      express: '^4.14.0',
+20 silly publish      'express-passport-logout': '^0.1.0',
+20 silly publish      'express-session': '^1.14.2',
+20 silly publish      'fs-extra': '^0.30.0',
+20 silly publish      gulp: '^3.9.1',
+20 silly publish      'gulp-install': '^0.6.0',
+20 silly publish      'gulp-shell': '^0.5.2',
+20 silly publish      'heroku-client': '^3.0.0-beta3',
+20 silly publish      inquirer: '^1.2.3',
+20 silly publish      minimist: '^1.2.0',
+20 silly publish      morgan: '^1.7.0',
+20 silly publish      octonode: '^0.7.6',
+20 silly publish      passport: '^0.3.2',
+20 silly publish      'passport-github': '^1.1.0',
+20 silly publish      path: '^0.12.7',
+20 silly publish      prompt: '^1.0.0',
+20 silly publish      'simple-git': '^1.62.0' },
+20 silly publish   readme: '# Práctica 7. Sistemas y Tecnologías Web\n\n## Plugin: Autenticación OAuth con Passport\n\nEl servidor proveído por el plugin (sea iaas o heroku) deberá autenticar que el lector del libro pertenece a una organización dada de GitHub (por ejemplo ULL-ESIT-SYTW-1617).\nSi es el caso que pertenece podrá seguir leyendo el libro, sino será redirigido a la ruta de autenticación.\n\n\n[Plugin: gitbook-start-heroku-p7-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-josue-nayra)\n\n**Versiones de los paquetes:**\n\n* gitbook-start-josue-nayra: **@1.8.5** (latest)\n* gitbook-start-heroku-p7-josue-nayra: **@0.0.1**\n* gitbook-start-iaas-ull-es-josue-nayra: **@1.1.9**\n\n\n### Pasos a seguir:\n\nSeguimos los pasos especificados de nuestro plugin para la creación del libro:\n\n1- Descargar el paquete inicial: **gitbook-start-josue-nayra**\n\n```bash\n$ npm install -g gitbook-start-josue-nayra\n```\n\n2- Crear el libro mediante el comando:\n\n```bash\n$ gitbook-start -d <directorio> --autor <autor> --name <nombre_libro> --url <url_repo>\n```\n\nSe construye así la estructura inicial por **gitbook-start**, es decir, la jerarquía de directorios conteniendo los scripts y ficheros markdown para el libro.\n\n\n3- Colocarse en la carpeta que contiene el libro.\n\n```bash\n$ cd <directorio en el que se ha desplegado el libro>\n```\n\n\n4- Instalar las dependencias necesarias mediante el comando:\n\n```bash\n$ npm install\n```\n\n\n5- Instalar el plugin requerido como dependendecia con la opción --save, como por ejemplo: **gitbook-start-heroku-p7-josue-nayra** para el despliegue en Heroku.\n\n```bash\n$ npm install --save gitbook-start-heroku-p7-josue-nayra\n```\n\n\n6- Es necesario tener el repositorio remoto actualizado. Para ello podemos ejecutar una de las tareas descritas en el gulpfile.\n\n```\n$ gulp push --mensaje <mensaje commit>\n```\n\n\n7- Nos **logueamos en Heroku** a través del siguiente comando:\n\n```bash\n$ heroku login\n```\n\n\n8- Ahora debemos **asignarle un nombre a la aplicación** de Heroku que se creará en el siguiente paso. Para ello accedemos al package.json y rellenamos la sección de Heroku:\n\n```json\n  "Heroku":{\n    "nombre_app": "<nombre de la aplicación"\n  },\n```\n\n\n9- Construcción del libro. Para hacerlo disponemos de una tarea en el gulpfile denominada **"build"**.\n\n```bash\n$ gulp build\n```\n\n10.- Previamente a crear nuestra APP en Heroku, debemos configurar una Oauth Application en Github, puesto que en el paso siguiente se pide que se introduzca por pantalla un clientID y un clientSecret para la misma. Debemos acceder al siguiente enlace y hacer click en "Register a new Application":\n\n  [Generar Oauth Application](https://github.com/settings/developers)\n\nNOTA: Es importante rellenar correctamente las secciones de **Homepage URL**(*http://localhost:8080/home*) y **Authorization callback URL**(*http:// < nombreAppHeroku > .herokuapp.com/login/github/return*).\n\n11- Una vez que hemos instalado el plugin de Heroku,  ejecutamos el **deploy**:\n\n```bash\n$ gitbook-start --deploy heroku  \n```\n\nUna vez ejecutado el comando anterior, se generará automáticamente en el gulpfile.js una tarea llamada\n"deploy-<máquina en la que realizar el despliegue>" que permitirá al usuario actualizar el contenido de dicha máquina.\n\n```javascript\ngulp.task("deploy-<máquina en la que realizar el despliegue>", function(){\n    require(path.join(basePath, \'node_modules\',\'<plugin de depliegue>\')).deploy(...);\n});\n```\n\n\n12- Ahora el usuario podrá ejecutar el siguiente comando y se le actualizarán los cambios en el Gitbook desplegado en Heroku:\n\n```\n$ gulp deploy-heroku\n```\n\n\n### Tareas Gulp\n\n\n* **push**\n\nTarea habilitada para que el usuario pueda actualizar el repositorio que contiene el gitbook. Está disponible una opción --mensaje para especificar el mensaje del commit.\n\n```bash\n$ gulp push --mensaje <mensaje del commit>\n```\n\n* **instalar_recursos**\n\nTarea que permite al usuario instalar plugins y dependencias necesarias para su gitbook.\n\n```bash\n$ gulp instalar_recursos\n```\n\n* **build**\n\nTarea para la construcción del libro.\n\n```bash\n$ gulp build\n```\n\n\n* **deploy**\n\nTarea deploy genérica que actualiza las gh-pages del gitbook.\n```\n$ gulp deploy\n```\n\n* **deploy-heroku**\n\nTarea generada posteriormente a la realización y ejecución del comando gitbook-start --deploy, que permite al usuario realizar posteriores despliegues y actualizaciones de su gitbook en Heroku con gulp.\nPor ejemplo, en el caso de que el usuario despliegue en Heroku, después de haber desplegado con la opción gitbook-start --deploy heroku, en el gulpfile se generará una tarea\ncon el nombre deploy-heroku.\n\n```\n$ gulp deploy-heroku\n```\n\n\n### Enlaces\n\n- [Campus virtual](https://campusvirtual.ull.es/1617/course/view.php?id=1175)\n\n- [Descripción de la práctica](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicapassport.html)\n\n- [Publicación del paquete gitbook-start-josue-nayra](https://www.npmjs.com/package/gitbook-start-josue-nayra)\n\n- [Plugin para el despliegue en IAAS](https://www.npmjs.com/package/gitbook-start-iaas-ull-es-josue-nayra)\n\n- [Plugin para el despliegue con Heroku](https://www.npmjs.com/package/gitbook-start-heroku-p7-josue-nayra)\n\n- [Repositorio del plugin IAAS](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-iaas-ull-es-josue-nayra)\n\n- [Repositorio de gitbook-start-josue-nayra](https://github.com/ULL-ESIT-SYTW-1617/crear-repositorio-en-github-josue-nayra.git)\n\n\n\n### Referencias\n\n- [Tutorial para publicar paquetes nodejs](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/nodejspackages.html)\n\n- [Gulp](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/gulp/)\n\n- [Uso de templates](https://www.npmjs.com/package/ejs)\n\n- [Fyle System de Nodejs para el manejo de archivos](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/fs.html)\n\n- [Construyendo package.json](https://docs.npmjs.com/files/package.json)\n\n\n\n### Integrantes\n\n- Josué Toledo Castro\n    [Github personal](www.github.com/JosueTC94)\n- María Nayra Rodríguez Pérez\n    [Github personal](www.github.com/alu0100406122)\n',
+20 silly publish   readmeFilename: 'README.md',
+20 silly publish   gitHead: 'fc9c8dd3c8390c6d3f8ecc1009da5624e97afea9',
+20 silly publish   _id: 'gitbook-start-heroku-p7-josue-nayra@0.0.6',
+20 silly publish   _shasum: '9c2e1d8deac22f69ef4fb1b2a68912d6028bf7dc',
+20 silly publish   _from: '.' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name gitbook-start-heroku-p7-josue-nayra
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'gitbook-start-heroku-p7-josue-nayra',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'gitbook-start-heroku-p7-josue-nayra',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/gitbook-start-heroku-p7-josue-nayra
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /home/ubuntu/.npm/gitbook-start-heroku-p7-josue-nayra/0.0.6/package.tgz
+29 verbose request uri https://registry.npmjs.org/gitbook-start-heroku-p7-josue-nayra
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 6:19:40 PM
+32 verbose request using bearer token for auth
+33 verbose request id 764f2c89f7bf4ba7
+34 http request PUT https://registry.npmjs.org/gitbook-start-heroku-p7-josue-nayra
+35 http 403 https://registry.npmjs.org/gitbook-start-heroku-p7-josue-nayra
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '129',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Wed, 23 Nov 2016 18:19:41 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-lcy1139-LCY',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1479925181.036736,VS0,VE818',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating /home/ubuntu/.npm/registry.npmjs.org/gitbook-start-heroku-p7-josue-nayra on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: you do not have permission to publish "gitbook-start-heroku-p7-josue-nayra". Are you logged in as the correct user? : gitbook-start-heroku-p7-josue-nayra
+39 verbose stack     at makeError (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/request/request.js:200:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/request/request.js:988:12)
+40 verbose statusCode 403
+41 verbose pkgid gitbook-start-heroku-p7-josue-nayra
+42 verbose cwd /home/ubuntu/workspace/P7_autenticacion/autenticacion-oauth-con-passport-josue-nayra-1
+43 error Linux 4.2.0-c9
+44 error argv "/home/ubuntu/.nvm/versions/node/v4.5.0/bin/node" "/home/ubuntu/.nvm/versions/node/v4.5.0/bin/npm" "publish"
+45 error node v4.5.0
+46 error npm  v2.15.9
+47 error code E403
+48 error you do not have permission to publish "gitbook-start-heroku-p7-josue-nayra". Are you logged in as the correct user? : gitbook-start-heroku-p7-josue-nayra
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

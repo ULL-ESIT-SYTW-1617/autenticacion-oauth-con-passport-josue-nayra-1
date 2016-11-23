@@ -10,8 +10,8 @@ Si es el caso que pertenece podrá seguir leyendo el libro, sino será redirigid
 
 **Versiones de los paquetes:**
 
-* gitbook-start-josue-nayra: **@1.8.5** (latest)
-* gitbook-start-heroku-p7-josue-nayra: **@0.0.1**
+* gitbook-start-josue-nayra: **latest**
+* gitbook-start-heroku-p7-josue-nayra: **latest** (nuevo paquete para esta práctica)
 * gitbook-start-iaas-ull-es-josue-nayra: **@1.1.9**
 
 
@@ -88,7 +88,7 @@ $ gulp build
 
   [Generar Oauth Application](https://github.com/settings/developers)
 
-NOTA: Es importante rellenar correctamente las secciones de **Homepage URL**(*http://localhost:8080/home*) y **Authorization callback URL**(*http:// < nombreAppHeroku > .herokuapp.com/login/github/return*).
+NOTA: Es importante rellenar correctamente las secciones de **Homepage URL (*http://localhost:8080/home*)** y **Authorization callback URL(*http:// < nombreAppHeroku > .herokuapp.com/login/github/return*)**.
 
 11- Una vez que hemos instalado el plugin de Heroku,  ejecutamos el **deploy**:
 
